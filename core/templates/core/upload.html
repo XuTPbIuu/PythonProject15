@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Загрузка изображения</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="p-4">
+  <h1>Добавить изображение</h1>
+  <form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}   <!-- теперь в форме только file_path -->
+  <button type="submit" class="btn btn-primary">Загрузить</button>
+  <a href="{% url 'index' %}" class="btn btn-secondary">Отмена</a>
+</form>
+</body>
+</html>
